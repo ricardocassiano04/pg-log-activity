@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #
-# Armazenda tamanho dos bancos de dados do cluster
+# Armazena tamanho dos bancos de dados do cluster
 #
 # Executar esse arquivo num cron do linux com u usuário postgres 
 #  uma vez no dia ou na frequência desejada
