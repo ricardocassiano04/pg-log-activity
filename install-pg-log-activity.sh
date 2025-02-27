@@ -18,6 +18,7 @@ function instalar_script () {
 
     echo "Digite agora a senha do usuário linux: "
 
+    sudo apt -y install cron 
     sudo mkdir -p /opt/pg-log-activity
     sudo chown -R postgres:postgres /opt/pg-log-activity
     sudo cp -rf pg-log-activity.sh /opt/pg-log-activity/
