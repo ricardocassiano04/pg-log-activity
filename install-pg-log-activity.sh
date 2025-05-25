@@ -12,6 +12,8 @@ read -r -p "Digite a porta de conexão ao servidor postgres ": PORTA
 
 read -r -p "Digite o nome do usuário ": USUARIO
 
+read -r -p "Digite o nome do banco de dados onde ficarão os logs ": BANCO
+
 
 
 function instalar_script () {
@@ -30,12 +32,13 @@ function instalar_script () {
     
     echo "Digite agora somente a senha do usuário postgres: "
 
-    psql -h ${SERVIDOR} -p ${PORTA} -d postgres -U ${USUARIO} -W -f criar-pg-log-activity.sql
+    psql -h ${SERVIDOR} -p ${PORTA} -d postgres -U ${USUARIO} -d ${BANCO} -W -f criar-pg-log-activity.sql
 }
 
 
 
 verificar_conexao=$(psql -h ${SERVIDOR} -p ${PORTA} -d postgres -U ${USUARIO} -W -tA -c "select count(1) from pg_database;")
+
 
 if [ "${verificar_conexao}" -gt "1" ]; then
     instalar_script
