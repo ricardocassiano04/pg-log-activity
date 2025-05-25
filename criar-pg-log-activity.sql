@@ -6,10 +6,6 @@ as atividades do banco de dados
 */
 
 
-CREATE DATABASE pg_log_activity ;
-
-\c pg_log_activity
-
 
 --
 -- Tabela pg_log_atividade para armazenar a cada minuto estado das transações
@@ -84,5 +80,6 @@ create table pg_log_banco
   id bigserial not null primary key,
   banco text,
   tamanho_banco bigint,
+  tamanho_banco_pretty text,
   criado_em timestamp(0) default CURRENT_TIMESTAMP(0)
 );
