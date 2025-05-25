@@ -12,10 +12,11 @@ BANCO=pg_log_activity
 
 
 psql -d "${BANCO}" -t -c "
-insert into pg_log_banco (banco, tamanho_banco)
+insert into pg_log_banco (banco, tamanho_banco, tamanho_banco_pretty)
 select 
  datname, 
- pg_database_size(datname) as tamanho_banco
+ pg_database_size(datname), 
+ pg_size_pretty(pg_database_size(datname))
 from pg_database
 where datistemplate = false
     and datname <> 'postgres' 
